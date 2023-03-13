@@ -1,0 +1,2 @@
+#!/bin/bash
+count=0; for d in */ do [ "$d" != "./" -a "$d" != "../" ]  ((count++)) cd "$d"  count=$(($count + $(find . -type d | wc -l) - 1))  
