@@ -1,0 +1,2 @@
+#!/bin/bash
+(defun list-empty-files-and-dirs () (interactive) (let ((default-directory (expand-file-name default-directory))) (with-output-to-temp-buffer "*Empty Files and Directories*" (dolist (file (directory-files-recursively default-directory "")) (unless (or (string-match-p "/\\.$" file) (file-symlink-p file) (file-directory-p file) (not (= (nth 7 (file-attributes file)) 0)))) (princ (file-name-nondirectory file)) (princ "\n")))))
